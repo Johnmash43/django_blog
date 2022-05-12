@@ -1,0 +1,31 @@
+{% extends 'layouts/base.html' %} 
+
+    
+{% block css %}
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+/>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-lg-10 text-center">
+
+                    <h1>Thank for your message.</h1>
+                    <h6>We shall respond to it as soon as possible.</h6>
+                    <a href="{% url 'home' %}" class="btn btn-warning btn-lg">Back to home</a>                   
+                </div>
+            </div>
+        </div>
+
+
+
+{% endblock %}
+
+
+{% block scripts %}
+
+{% endblock %}
+

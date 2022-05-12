@@ -1,0 +1,67 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+<div class="row m-5">
+    <div class="col-lg-4">
+        <div class="card mt-3 text-center">
+            <div class="card-body m-3">
+                <p><i class="fa fa-phone fa-2x text-dark" aria-hidden="true"></i><h3 class="text-center">Contact Us</h3></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <div class="card mt-3 text-center">
+            <div class="card-body m-3">
+                <p><i class="fa fa-envelope fa-2x text-dark" aria-hidden="true"></i><h3 class="text-center">Send Us An Email</h3></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <div class="card mt-3 text-center">
+            <div class="card-body m-3">
+                <p><i class="fa fa-map-marker fa-2x text-dark" aria-hidden="true"></i><h3 class="text-center">Our Location</h3></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row m-3">
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-body">
+                <form method="post" action="{% url 'contact.form' %}">
+                    {% csrf_token %}
+                    <h3 class="text-center text-warning" >Contact Us</h3>
+                    <div class="mb-3">
+                        <label>Name</label>
+                        <input type="text" class="form-control">
+                    </div>
+
+                    <div class="mb-3">
+                        <label>Email</label>
+                        <input type="text" class="form-control">
+                    </div>
+
+                    <div class="mb-3">
+                        <label>Phone Number</label>
+                        <input type="text" class="form-control">
+                    </div>
+
+                    <div class="mb-3">
+                        <label>Message</label>
+                        <textarea type="text" class="form-control" ></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-warning btn-lg">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
