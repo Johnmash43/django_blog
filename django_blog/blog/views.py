@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from  .models import Writer
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect,JsonResponse
 
 # Create your views here.
 def home(request):
@@ -56,6 +56,20 @@ def successRedirect(request):
     }
     return render(request, "success.html", context)         
 
+
+def ajaxContactSubmission(request):
+
+    email= request.POST["email"]
+    name= request.POST["name"]
+    number= request.POST["number"]
+    message = request.POST["message"]
+
+    context={
+        "success": True,
+        "message": "Thank you "+name+" for your message"
+    }
+
+    return JsonResponse(context)
 
     
 
