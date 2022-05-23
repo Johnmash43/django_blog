@@ -1,19 +1,24 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect,JsonResponse
+from .models import *
+from django.contrib import messages
 
 # Create your views here.
 def home(request):
+    ##Tis returns a Queryset containing all articles in the database.
+    articles = Article.objects.filter(Status = Article.LIVE).filter(created_at__year = 2022 )
 
     context = {
-        'first_name':'John',
-        'last_name':'Mash',
+        "articles": articles
     }
     return render(request, "index.html", context)
 
 def blog(request):
+    articles = Article.objects.filter(Status = Article.LIVE)
     context = {
-      
+        "articles": articles
     }
+    
     return render(request, "blog.html", context)
 
 def about(request):
@@ -67,6 +72,46 @@ def ajaxContactSubmission(request):
     }
 
     return JsonResponse(context)
+
+
+def getArticleDetails(request, id):
+
+    try:
+        article = Article.objects.get(pk = id)
+
+    except Article.DoesNotExist:
+
+        messages.info("Sorry, that article does not exist")    
+        return HttpResponseRedirect("/")
+
+    article = Article.objects.get(pk = id)
+    categories = Category.objects.all()
+    other_articles = Article.objects.exclude(pk = id)
+
+    context = {
+        "article" : article,
+        "categories" : categories,
+        "more_articles" : other_articles,
+    }
+
+    return render(request,"article-details.html", context)
+
+
+def searchArticles(request):
+
+    query = request.POST["query"]
+
+    articles = Article.objects.filter(
+        Status = Article.LIVE).filter(
+            content__contains = query
+        )
+
+    context = {
+        "articles" : articles
+    }
+
+    return render(request,"blog.html",context)
+
 
     
 

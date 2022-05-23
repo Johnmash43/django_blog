@@ -1,0 +1,11 @@
+<div class="col-lg-4">
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1652972756751-4de8e9ef9e77?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=60&raw_url=true&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw4fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500" class="img-fluid">
+        <div class="card-body">
+            <span class="badge bg-warning">{{article.Category.name}}</span>
+            <h6 class="mt-2" >{{article.title}}</h6>
+            <small>{{article.content | truncatewords:10}}</small>
+            <a href="{% url 'article.details' article.id %}" class="btn btn-warning btn-sm">Read More</a>
+        </div>
+    </div>
+</div>

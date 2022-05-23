@@ -8,15 +8,35 @@
 {% block content %}
 <div class="container">
     <div class="row">
-        <h3 class="text-center" >Search for posts </h3>
+        <h3 class="text-center">Search for posts </h3>
         <div class="col-lg-12">
-            <div class="card m-5">
+            <form action="{% url 'search' %}" method="post">
+                {% csrf_token %}
                 <div class="input-group">
-               <input type="text" class="form-control" placeholder="search bar">
-              <button class="btn btn-outline-warning" type="button">Button</button>
+               <input type="search" name="query" class="form-control" placeholder="search for posts">
+              <button class="btn btn-warning" type="submit">Search</button>
+            </div>
+        </form>
+    </div>
+ </div>
+    <h3 class="text-center text-warning" >Recent Posts</h3>  
+    <div class="row justify-content-center ">
+
+        {% for article in articles %}
+
+        <div class="col-lg-4">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1652972756751-4de8e9ef9e77?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=60&raw_url=true&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw4fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500" class="img-fluid">
+                <div class="card-body">
+                    <span class="badge bg-warning">{{article.Category.name}}</span>
+                    <h6 class="mt-2" >{{article.title}}</h6>
+                    <small>{{article.content | truncatewords:10}}</small>
+                </div>
             </div>
         </div>
-    </div>
+
+        {% endfor %}
+    </div>  
 </div>
 
 

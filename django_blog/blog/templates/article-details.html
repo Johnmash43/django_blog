@@ -1,0 +1,46 @@
+{% extends 'layouts/base.html' %} 
+{% load static %}
+    
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8">
+
+            <div class="card">
+                <img src="" alt="">
+            </div>
+
+            <h4 class="text-warning font-weight-bold">{{article.title}}</h4>
+
+            <p>{{article.content}}</p>
+
+        </div>
+
+        <div class="col-lg-4">
+            
+            <div class="card">
+                <div class="card-body">
+                    <h5>Categories</h5>
+                    <br>
+                    {% for category in categories %}
+                          
+                         <a href="" class="btn btn-outline-warning border-0">{{category.name}}</a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <h4 class="font-weight-bold">More like this</h4>
+        <div class="row">
+            {% for article in more_articles %}
+            
+            {% include 'layouts/single-article.html' %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
