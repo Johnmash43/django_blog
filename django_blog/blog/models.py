@@ -79,6 +79,14 @@ class Reaction(models.Model):
         return "Reaction by: "+ self.reader.email
 
 
+class Feedback(models.Model):
+    message = models.TextField()
+    name = models.CharField(null=True, blank=False, max_length=100)
+    email = models.EmailField(null=True, blank=False, max_length=200)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+
 
 
 

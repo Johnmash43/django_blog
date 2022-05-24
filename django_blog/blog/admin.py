@@ -8,6 +8,7 @@ admin.site.register(Category)
 admin.site.register(Reaction)
 admin.site.register(Reader)
 admin.site.register(Image)
+admin.site.register(Feedback)
 
 
 
