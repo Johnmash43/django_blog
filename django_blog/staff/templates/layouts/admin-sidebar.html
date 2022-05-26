@@ -1,0 +1,32 @@
+{% load static %}
+<nav id="sidebar">
+    <div class="sidebar-header">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <h4>My Blog</h4>
+
+            </div>
+        </div>
+        
+    </div>
+
+    <ul class="list-unstyled components">
+        
+        <li>
+            <a href="{% url 'dashboard' %}"><i class="fa fa-tachometer mr-3"></i>Dashboard</a>
+        </li>
+
+        <li>
+            <a href="{% url 'categories' %}"><i class="fa fa-tags mr-3"></i>Categories</a>
+        </li>
+        
+        <li>
+            <a href="{% url 'articles' %}"><i class="fa fa-files-o mr-3"></i>Posts</a>
+        </li>
+
+        <li>
+            <a href=""><i class="fa fa-comments mr-3"></i>Feedback</a>
+        </li>
+        
+    </ul>
+</nav>

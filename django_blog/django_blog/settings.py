@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog.apps.BlogConfig',
+    'staff.apps.StaffConfig'
 ]
 
 MIDDLEWARE = [
@@ -56,7 +57,7 @@ ROOT_URLCONF = 'django_blog.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['blog/templates'],
+        'DIRS': ['blog/templates', 'staff/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -121,6 +122,8 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'blog/static/'),
+    os.path.join(BASE_DIR, 'staff/static/'),
+
 ]
 
 MEDIA_URL = '/media/'
@@ -135,3 +138,6 @@ EMAIL_HOST = 'smtp.mailtrap.io'
 EMAIL_HOST_USER = '864f2e85f517b9'
 EMAIL_HOST_PASSWORD = '2db063196264e1'
 EMAIL_PORT = '2525'
+
+
+LOGIN_REDIRECT_URL = "/"

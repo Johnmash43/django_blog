@@ -11,6 +11,16 @@
 
     {% block content %}
     <div class="container">
+        {% if messages %}
+
+        {% for message in messages %}
+
+        <div class="alert alert-info mt-2">
+            {{message}}
+        </div>    
+        {% endfor %}
+
+        {% endif %}
         <div class="row justify-content-center mt-5">
             <div class="col-lg-4">
                 <img class="img-fluid" src="{% static 'images/banner.svg' %}">

@@ -43,7 +43,7 @@ def submitContactForm(request):
        form_data = request.POST
        email = form_data["email"]
        name = form_data["name"]
-       number = form_dat["number"]
+       number = form_data["number"]
        message = form_data["message"]
 
       
@@ -97,7 +97,7 @@ def getArticleDetails(request, id):
 
     except Article.DoesNotExist:
 
-        messages.info("Sorry, that article does not exist")    
+        messages.info(request,"Sorry, this article does not exist")    
         return HttpResponseRedirect("/")
 
     article = Article.objects.get(pk = id)
