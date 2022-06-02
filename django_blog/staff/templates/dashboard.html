@@ -6,21 +6,79 @@
 
 
 <div class="container">
-    {% if messages %}
+   
 
-    {% for message in messages %}
+    <h2 class="mt-4">Dashboard</h2>
 
-        <div class="alert alert-info">
-
-            {{message}}
-
-
+    <div class="row mt-5">
+        <div class="col-lg-4">
+            <div class="card bg-warning text-dark">
+                <div class="card-body text-center">
+                    <i class=""></i>
+                    <h4>Categories</h4>
+                    <p>{{total_categories}}</p>
+                </div>
+            </div>
         </div>
 
-    {% endfor %}
-    
-    {% endif %}
+        <div class="col-lg-4">
+            <div class="card bg-secondary text-light">
+                <div class="card-body text-center">
+                    <i class=""></i>
+                    <h4>Articles</h4>
+                    <p>{{total_articles}}</p>
+                </div>
+            </div>
+        </div>
 
+        <div class="col-lg-4">
+            <div class="card bg-dark text-light">
+                <div class="card-body text-center">
+                    <i class=""></i>
+                    <h4>Feedback</h4>
+                    <p>{{messages.count}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-body">
+                    <h4>Feedback</h4>
+                    <hr>
+                    <table class="table table-striped table-responsive-sm">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>message</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for message in messages%}
+                            <tr>
+                            <td>{{message.id}}</td>
+                            <td>{{message.name}}</td>
+                            <td>{{message.email}}</td>
+                            <td>{{message.message}}</td>
+                            <td>
+                                <a href="{% url 'feedback.reply' message.id %}" class="btn btn-warning btn-sm">Reply</a>
+                            </td>
+                        </tr>
+
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
 {% endblock %}
     
-</div>

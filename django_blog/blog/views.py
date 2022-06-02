@@ -129,6 +129,20 @@ def searchArticles(request):
     return render(request,"blog.html",context)
 
 
+def redirectAfterLogin(request):
+
+    if request.user.is_superuser:
+        ##Redirect to the dashboard
+        return HttpResponseRedirect("staff/dashboard")
+
+
+    else:
+
+        ##Redirect to blog/posts
+        return HttpResponseRedirect("/blog")
+                
+
+
     
 
 

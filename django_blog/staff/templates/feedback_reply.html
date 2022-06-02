@@ -1,0 +1,33 @@
+
+{% extends 'layouts/admin-base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        
+        <div class="col-lg-8">
+
+            <h4>Replying to feedback by {{feedback.name}}</h4>
+            <p>{{feedback.message}}</p>
+
+            <div class="card">
+                <div class="card-body">
+                    <form action="{% url 'feedback.reply' feedback.id %}" method="post">
+
+                        {% csrf_token %}
+
+                        {{ form.as_p }}
+
+                        <button type="submit" class="btn btn-warning">Send Email</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
