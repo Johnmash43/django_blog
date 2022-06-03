@@ -34,6 +34,7 @@ class Article(models.Model):
         (IN_REVIEW,"In Review"),
         (INACTIVE, "Inactive")
     )
+    picture = models.ImageField(null=True, blank=True)
     title = models.CharField(max_length=255, blank=True, null=True)
     content = models. TextField()
     shares = models.IntegerField(default=0)

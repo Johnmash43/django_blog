@@ -8,7 +8,7 @@
     min-width: 250px;
     max-width: 250px;
     min-height: 100vh;
-    background: #00a870;
+    background: #ccf107;
     color: #fff;
     transition: all 0.3s;
 }
@@ -50,7 +50,7 @@ a, a:hover, a:focus {
 
 #sidebar ul.components {
     padding: 0 0;
-    border-bottom: 1px solid #00a870;
+    border-bottom: 1px solid #ccf107;
 }
 
 #sidebar ul p {
@@ -70,12 +70,12 @@ a, a:hover, a:focus {
 
 #sidebar ul li.active > a, a[aria-expanded="true"] {
     color: #fff;
-    background: #01724c;
+    background: #ccf107;
 }
 ul ul a {
     font-size: 0.9em !important;
     padding-left: 30px !important;
-    background: #00a870;
+    background: #ccf107;
 }
 
 
